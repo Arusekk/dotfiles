@@ -1,0 +1,101 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 5
+}
+
+#order += "ipv6"
+order += "disk /"
+order += "disk /home"
+order += "run_watch DHCP"
+order += "run_watch HTTPD"
+order += "wireless wlp9s0"
+order += "ethernet enp8s0"
+#order += "run_watch bluetooth"
+order += "volume master"
+order += "battery 1"
+order += "cpu_temperature 0"
+order += "cpu_usage"
+order += "load"
+order += "time"
+
+wireless wlp9s0 {
+        format_up = "📡 (%essid %quality) %ip"
+        format_down = "📡 down"
+}
+
+ethernet enp8s0 {
+        # if you use %speed, i3status requires root privileges
+        format_up = "🖧 %ip (%speed)"
+        format_down = "🖧"
+}
+
+battery 1 {
+        format = "%status %percentage %remaining"
+        status_chr = "⚡"
+        status_bat = "🔋"
+        status_full = "🔌"
+}
+
+run_watch bluetooth {
+	pidfile = "/sys/fs/cgroup/systemd/system.slice/bluetooth.service/tasks"
+	format = "ᕒ %status"
+}
+
+run_watch DHCP {
+        pidfile = "/run/dhc*.pid"
+        format = "%title"
+        format_down = ""
+}
+
+run_watch HTTPD {
+        pidfile = "/run/httpd/httpd.pid"
+        format = "%title"
+        format_down = ""
+}
+
+run_watch VPN {
+        pidfile = "/run/vpnc/pid"
+        format = "%title"
+        format_down = ""
+}
+
+time {
+        format = "%Y-%m-%d %H:%M:%S"
+}
+
+load {
+        format = "🚂 %1min"
+}
+
+cpu_usage {
+        format = "🔥 %usage"
+}
+
+cpu_temperature 0 {
+        format = "🌡 %degrees°C"
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input"
+}
+
+disk "/" {
+        format = "🖴 %avail"
+}
+
+disk "/home" {
+        format = "🖴 /home %avail"
+}
+
+volume master {
+        device = "default"
+        mixer = "Master"
+        format = "🔊 %volume"
+        format_muted = "🔇 %volume"
+        mixer_idx = 0
+}

@@ -1,0 +1,20 @@
+[push]
+	default = simple
+	followTags = true
+[user]
+	name = Arusekk
+	email = arek_koz@o2.pl
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[pull]
+	ff = only
+[sendemail]
+	smtpEncryption = tls
+	smtpServer = poczta.o2.pl
+	smtpUser = arek_koz@o2.pl
+#	smtpPass = ...
+[init]
+	defaultBranch = master

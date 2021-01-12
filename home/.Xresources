@@ -1,0 +1,8 @@
+*foreground: white
+*background: gray10
+URxvt.font: xft:Noto Sans Mono:style=Medium:size=9,xft:Hack:style=Regular:size=9,xft:FontAwesome:style=Regular:size=9
+*label.font: -monotype-noto sans-medium-r-normal--0-90-0-0-p-0-iso8859-2
+*xterm*font: -monotype-noto sans-medium-r-normal--0-90-0-0-p-0-iso8859-2
+xdvi*font: -monotype-noto sans-medium-r-normal--0-90-0-0-p-0-iso8859-2
+*xterm*faceName: xft:Hack:size=9
+*xterm*termName: xterm-256color
